@@ -8,7 +8,7 @@ const Car = props => {
     model: "",
     year: 0,
     price: 0,
-    status: "Available"
+    status: "Live"
   };
   const [currentCar, setCurrentCar] = useState(initialCarState);
   const [message, setMessage] = useState("");
