@@ -2,9 +2,11 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 import CarDataService from "../services/CarService";
 import { useTable } from "react-table";
 
+import Histogram from 'react-chart-histogram';
+
 const CarsList = (props) => {
   const [cars, setCars] = useState([]);
-  const [searchCar, setSearchCar] = useState("");
+  const [searchMake, setSearchMake] = useState("");
   const carsRef = useRef();
 
   carsRef.current = cars;
@@ -13,9 +15,9 @@ const CarsList = (props) => {
     retrieveCars();
   }, []);
 
-  const onChangeSearchCar = (e) => {
-    const searchCar = e.target.value;
-    setSearchCar(searchCar);
+  const onChangeSearchMake = (e) => {
+    const searchMake = e.target.value;
+    setSearchMake(searchMake);
   };
 
   const retrieveCars = () => {
@@ -43,8 +45,8 @@ const CarsList = (props) => {
       });
   };
 
-  const findByCar = () => {
-    CarDataService.findByCar(searchCar)
+  const findByMake = () => {
+    CarDataService.findByMake(searchMake)
       .then((response) => {
         setCars(response.data);
       })
@@ -134,7 +136,11 @@ const CarsList = (props) => {
     data: cars,
   });
 
+ 
+
   return (
+    
+    
     <div className="list row">
       <div className="col-md-8">
         <div className="input-group mb-3">
@@ -142,14 +148,14 @@ const CarsList = (props) => {
             type="text"
             className="form-control"
             placeholder="Search by make"
-            value={searchCar}
-            onChange={onChangeSearchCar}
+            value={searchMake}
+            onChange={onChangeSearchMake}
           />
           <div className="input-group-append">
             <button
               className="btn btn-outline-secondary"
               type="button"
-              onClick={findByCar}
+              onClick={findByMake}
             >
               Search
             </button>
@@ -188,6 +194,7 @@ const CarsList = (props) => {
           </tbody>
         </table>
       </div>
+      
 
       {/* <div className="col-md-8">
         <button className="btn btn-sm btn-danger" onClick={removeAllCars}>
