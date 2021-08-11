@@ -103,9 +103,7 @@ const CarsList = (props) => {
       {
         Header: "Status",
         accessor: "status",
-        // Cell: (props) => {
-        //   return props.value ? "Available" : "Sold";
-        // },
+        
       },
       {
         Header: "Actions",

@@ -8,7 +8,7 @@ const AddCar = () => {
     model: "",
     year: 0,
     price: 0,
-    status: "Available"
+    status: "Live"
   };
   const [car, setCar] = useState(initialCarState);
   const [submitted, setSubmitted] = useState(false);
