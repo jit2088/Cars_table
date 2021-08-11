@@ -141,29 +141,9 @@ const Car = props => {
               />
             </div>
 
-            {/* <div className="form-group">
-              <label>
-                <strong>Status:   </strong>
-              </label>
-              {currentCar.sold ? "Sold" : "Available"}
-            </div> */}
           </form>
 
-          {/* {currentCar.published ? (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(false)}
-            >
-              Available
-            </button>
-          ) : (
-            <button
-              className="badge badge-primary mr-2"
-              onClick={() => updatePublished(true)}
-            >
-              Status
-            </button>
-          )} */}
+          
 
           <button className="badge badge-danger mr-2" onClick={deleteCar}>
             Delete
