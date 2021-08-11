@@ -7,6 +7,7 @@ import Histogram from 'react-chart-histogram';
 const CarsList = (props) => {
   const [cars, setCars] = useState([]);
   const [searchMake, setSearchMake] = useState("");
+ 
   const carsRef = useRef();
 
   carsRef.current = cars;
@@ -19,6 +20,7 @@ const CarsList = (props) => {
     const searchMake = e.target.value;
     setSearchMake(searchMake);
   };
+ 
 
   const retrieveCars = () => {
     CarDataService.getAll()
@@ -54,6 +56,8 @@ const CarsList = (props) => {
         console.log(e);
       });
   };
+
+ 
 
   const openCar = (rowIndex) => {
     const id = carsRef.current[rowIndex].id;
@@ -151,6 +155,7 @@ const CarsList = (props) => {
             value={searchMake}
             onChange={onChangeSearchMake}
           />
+         
           <div className="input-group-append">
             <button
               className="btn btn-outline-secondary"
